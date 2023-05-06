@@ -1,29 +1,28 @@
 import { hash } from 'bcrypt';
 import { Service, Container } from 'typedi';
-import { USERS } from '@config';
 import { HttpException } from '@exceptions/httpException';
 import { User } from '@interfaces/users.interface';
-import { MongoDBServie } from '@services/mongodb.service';
+import { MySQLService } from '@services/mysql.service';
 import { UserModel } from '@models/users.model';
-import { MongoRepository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { getNowTimeByTimeZone } from '@/utils/timeHandler';
 
 @Service()
 export class UserService {
-  private getRepository() {
-    const MongoDB = Container.get(MongoDBServie);
-    return MongoDB.AppDataSource.getMongoRepository(UserModel);
+  private async getRepository() {
+    const MySQL = await Container.get(MySQLService);
+    return MySQL.AppDataSource.getRepository(UserModel);
   }
 
   public async findAllUsers(): Promise<User[]> {
-    const userRepository: MongoRepository<UserModel> = this.getRepository();
+    const userRepository: Repository<UserModel> = await this.getRepository();
 
     const users: User[] = await userRepository.find();
     return users;
   }
 
   public async findUserByEmail(email: string): Promise<User> {
-    const userRepository: MongoRepository<UserModel> = this.getRepository();
+    const userRepository: Repository<UserModel> = await this.getRepository();
 
     const findUser: User = await userRepository.findOneBy({ email });
     if (!findUser) throw new HttpException(409, "User doesn't exist");
@@ -32,7 +31,7 @@ export class UserService {
   }
 
   public async createUser(userData: User): Promise<User> {
-    const userRepository: MongoRepository<UserModel> = this.getRepository();
+    const userRepository: Repository<UserModel> = await this.getRepository();
 
     const findUser: User = await userRepository.findOneBy({ email: userData.email });
     if (findUser) throw new HttpException(409, `This email ${userData.email} already exists`);
@@ -45,7 +44,7 @@ export class UserService {
   }
 
   public async updateUser(userData: User): Promise<User> {
-    const userRepository: MongoRepository<UserModel> = this.getRepository();
+    const userRepository: Repository<UserModel> = await this.getRepository();
 
     const findUser: User = await this.findUserByEmail(userData.email);
     if (!findUser) throw new HttpException(409, "User doesn't exist");

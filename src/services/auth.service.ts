@@ -13,7 +13,6 @@ const createToken = (user: User): TokenData => {
   const dataStoredInToken: DataStoredInToken = {
     id: user.id,
     username: user.username,
-    role: user.role,
     createDt: user.createDt,
     updateDt: user.updateDt,
   };

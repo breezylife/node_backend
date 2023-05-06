@@ -13,20 +13,20 @@ import { NODE_ENV, PORT, LOG_FORMAT, ORIGIN, CREDENTIALS } from '@config';
 import { Routes } from '@interfaces/routes.interface';
 import { ErrorMiddleware } from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
-import { MongoDBServie } from '@services/mongodb.service';
+import { MySQLService } from '@/services/mysql.service';
 
 export class App {
   public app: express.Application;
   public env: string;
   public port: string | number;
-  public MongoDB = Container.get(MongoDBServie);
+  public MySQLService = Container.get(MySQLService);
 
   constructor(routes: Routes[]) {
     this.app = express();
     this.env = NODE_ENV || 'development';
     this.port = PORT || 3000;
 
-    this.MongoDB.connectToMongoDB();
+    this.MySQLService.connectToMySQL();
     this.initializeMiddlewares();
     this.initializeRoutes(routes);
     this.initializeSwagger();

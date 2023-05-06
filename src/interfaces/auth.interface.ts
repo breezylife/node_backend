@@ -3,9 +3,8 @@ import { User } from '@interfaces/users.interface';
 import { ObjectId } from 'typeorm';
 
 export interface DataStoredInToken {
-  id: ObjectId;
+  id: number;
   username: string;
-  role: string;
   createDt: string;
   updateDt: string;
 }
