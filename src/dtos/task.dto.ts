@@ -1,5 +1,5 @@
 import { IsEmail, IsString, IsNotEmpty, MinLength, MaxLength, IsDate, IsArray, IsNumber, IsOptional } from 'class-validator';
-import { Task } from '@interfaces/task.interface';
+import { Task } from '@/interfaces/tasks.interface';
 
 export class CreateTask {
   @IsOptional()

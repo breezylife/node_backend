@@ -3,6 +3,7 @@ import { DATABASE } from '@config';
 import { Service } from 'typedi';
 import { UserModel } from '@/models/users.model';
 import { TaskModel } from '@/models/tasks.model';
+import { TeamModel } from '@/models/teams.model';
 
 @Service()
 export class MySQLService {
@@ -17,7 +18,7 @@ export class MySQLService {
         username: 'root',
         password: 'root',
         database: DATABASE,
-        entities: [UserModel, TaskModel],
+        entities: [UserModel, TaskModel, TeamModel],
         synchronize: true,
       });
       this.AppDataSource.initialize()

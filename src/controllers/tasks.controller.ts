@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { Container } from 'typedi';
-import { Task } from '@interfaces/task.interface';
+import { Task } from '@/interfaces/tasks.interface';
 import { TasksService } from '@services/tasks.service';
 
 export class TaskController {

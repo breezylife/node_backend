@@ -4,7 +4,7 @@ import { MySQLService } from '@/services/mysql.service';
 import { TaskModel } from '@models/tasks.model';
 import { Repository } from 'typeorm';
 import { getNowTimeByTimeZone } from '@/utils/timeHandler';
-import { Task } from '@interfaces/task.interface';
+import { Task } from '@/interfaces/tasks.interface';
 
 @Service()
 export class TasksService {
