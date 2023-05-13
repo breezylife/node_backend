@@ -1,6 +1,5 @@
 import { Request } from 'express';
 import { User } from '@interfaces/users.interface';
-import { ObjectId } from 'typeorm';
 
 export interface DataStoredInToken {
   id: number;
