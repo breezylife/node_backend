@@ -22,6 +22,7 @@ export class MySQLService {
         database: DATABASE,
         entities: [UserModel, TaskModel, TeamModel, MemberModel, StatusModel],
         synchronize: true,
+        ssl: true,
       });
       this.AppDataSource.initialize()
         .then(() => {
