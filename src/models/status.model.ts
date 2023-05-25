@@ -13,8 +13,8 @@ export class StatusModel {
   description: string;
 
   @Column()
-  createDt: string;
+  createDt: Date;
 
   @Column()
-  updateDt: string;
+  updateDt: Date;
 }

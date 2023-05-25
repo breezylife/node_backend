@@ -19,8 +19,8 @@ export class MemberModel {
   description: string;
 
   @Column()
-  createDt: string;
+  createDt: Date;
 
   @Column()
-  updateDt: string;
+  updateDt: Date;
 }

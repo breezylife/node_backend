@@ -4,8 +4,8 @@ import { User } from '@interfaces/users.interface';
 export interface DataStoredInToken {
   id: number;
   username: string;
-  createDt: string;
-  updateDt: string;
+  createDt: Date;
+  updateDt: Date;
 }
 
 export interface TokenData {

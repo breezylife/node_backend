@@ -9,8 +9,8 @@ export interface Task {
   status: string;
   assignee: string;
   parentId: string;
-  createDt: string;
-  updateDt: string;
+  createDt: Date;
+  updateDt: Date;
 }
 
 // export interface SubTask {
@@ -22,6 +22,6 @@ export interface Task {
 //   assignee: string;
 //   parentId: string;
 //   subTasks: Array<SubTask>;
-//   createDt: string;
-//   updateDt: string;
+//   createDt: Date;
+//   updateDt: Date;
 // }
