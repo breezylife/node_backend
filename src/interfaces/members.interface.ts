@@ -2,6 +2,6 @@ export interface Member {
   id: number;
   name: string;
   description: string;
-  createDt: Date;
-  updateDt: Date;
+  // createDt: Date;
+  // updateDt: Date;
 }

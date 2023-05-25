@@ -32,7 +32,8 @@ export class MembersService {
   public async createMember(teamData: Member): Promise<Member> {
     const teamRepository: Repository<MemberModel> = await this.getRepository();
 
-    const createMemberData: Member = { ...teamData, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
+    const createMemberData: Member = { ...teamData };
+    // const createMemberData: Member = { ...teamData, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
     await teamRepository.save(createMemberData);
 
     return createMemberData;

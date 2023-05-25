@@ -32,7 +32,8 @@ export class TeamsService {
   public async createTeam(teamData: Team): Promise<Team> {
     const teamRepository: Repository<TeamModel> = await this.getRepository();
 
-    const createTeamData: Team = { ...teamData, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
+    const createTeamData: Team = { ...teamData };
+    // const createTeamData: Team = { ...teamData, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
     await teamRepository.save(createTeamData);
 
     return createTeamData;

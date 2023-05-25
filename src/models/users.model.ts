@@ -15,9 +15,9 @@ export class UserModel {
   @Column()
   password: string;
 
-  @Column()
-  createDt: Date;
+  // @Column()
+  // createDt: Date;
 
-  @Column()
-  updateDt: Date;
+  // @Column()
+  // updateDt: Date;
 }

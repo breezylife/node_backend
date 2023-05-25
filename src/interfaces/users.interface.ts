@@ -5,6 +5,6 @@ export interface User {
   email: string;
   password: string;
   username: string;
-  createDt: Date;
-  updateDt: Date;
+  // createDt: Date;
+  // updateDt: Date;
 }

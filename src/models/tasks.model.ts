@@ -34,9 +34,9 @@ export class TaskModel {
   @Column({ nullable: true })
   parentName: string;
 
-  @Column()
-  createDt: Date;
+  // @Column()
+  // createDt: Date;
 
-  @Column()
-  updateDt: Date;
+  // @Column()
+  // updateDt: Date;
 }

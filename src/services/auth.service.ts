@@ -13,8 +13,8 @@ const createToken = (user: User): string => {
   const dataStoredInToken: DataStoredInToken = {
     id: user.id,
     username: user.username,
-    createDt: user.createDt,
-    updateDt: user.updateDt,
+    // createDt: user.createDt,
+    // updateDt: user.updateDt,
   };
   const expiresIn: number = 60 * 60;
 

@@ -37,7 +37,8 @@ export class UserService {
     if (findUser) throw new HttpException(409, `This email ${userData.email} already exists`);
 
     const hashedPassword = await hash(userData.password, 10);
-    const createUserData: User = { ...userData, password: hashedPassword, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
+    const createUserData: User = { ...userData, password: hashedPassword };
+    // const createUserData: User = { ...userData, password: hashedPassword, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
     await userRepository.save(createUserData);
 
     return createUserData;

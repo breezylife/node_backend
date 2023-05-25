@@ -43,7 +43,8 @@ export class TasksService {
     //   return createSubTaskData;
     // }
 
-    const createTaskData: Task = { ...taskData, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
+    const createTaskData: Task = { ...taskData };
+    // const createTaskData: Task = { ...taskData, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
     await taskRepository.save(createTaskData);
 
     return createTaskData;
@@ -52,7 +53,8 @@ export class TasksService {
   public async updateTask(taskData: Task): Promise<Task> {
     const taskRepository: Repository<TaskModel> = await this.getRepository();
 
-    const updateTaskData: Task = { ...taskData, updateDt: getNowTimeByTimeZone() };
+    const updateTaskData: Task = { ...taskData };
+    // const updateTaskData: Task = { ...taskData, updateDt: getNowTimeByTimeZone() };
     await taskRepository.save(updateTaskData);
 
     return updateTaskData;

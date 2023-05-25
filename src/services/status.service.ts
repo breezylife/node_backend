@@ -32,7 +32,8 @@ export class StatusService {
   public async createStatus(statusData: Status): Promise<Status> {
     const statusRepository: Repository<StatusModel> = await this.getRepository();
 
-    const createStatusData: Status = { ...statusData, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
+    const createStatusData: Status = { ...statusData };
+    // const createStatusData: Status = { ...statusData, createDt: getNowTimeByTimeZone(), updateDt: getNowTimeByTimeZone() };
     await statusRepository.save(createStatusData);
 
     return createStatusData;
