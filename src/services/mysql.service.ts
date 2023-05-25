@@ -14,11 +14,11 @@ export class MySQLService {
   public async connectToMySQL() {
     try {
       this.AppDataSource = await new DataSource({
-        type: 'mysql',
-        host: 'localhost',
-        port: 3306,
+        type: 'postgres',
+        host: 'dpg-chnms27dvk4n43aj1m60-a.singapore-postgres.render.com',
+        port: 5432,
         username: 'root',
-        password: 'root',
+        password: 'Tt6m8GfxMIsfJSCmxQaTPOzRKcpkJGYM',
         database: DATABASE,
         entities: [UserModel, TaskModel, TeamModel, MemberModel, StatusModel],
         synchronize: true,
