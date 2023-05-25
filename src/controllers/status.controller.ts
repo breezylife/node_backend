@@ -1,14 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
 import { Container } from 'typedi';
-import { Member } from '@interfaces/members.interface';
-import { MembersService } from '@services/members.service';
+import { Status } from '@interfaces/status.interface';
+import { StatusService } from '@services/status.service';
 
-export class MemberController {
-  public team = Container.get(MembersService);
+export class StatusController {
+  public team = Container.get(StatusService);
 
-  public getAllMembers = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  public getStatus = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const findAllUsersData: Member[] = await this.team.findAllMembers();
+      const findAllUsersData: Status[] = await this.team.findAllStatus();
 
       res.status(200).json({ data: findAllUsersData, message: 'Success' });
     } catch (error) {
@@ -16,21 +16,10 @@ export class MemberController {
     }
   };
 
-  public getMembersByTeamId = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    try {
-      const teamId = req.params.id;
-      const findAllUsersData: Member[] = await this.team.findAllMembersByTeamId(teamId);
-
-      res.status(200).json({ data: findAllUsersData, message: 'Success' });
-    } catch (error) {
-      next(error);
-    }
-  };
-
-  // public getMemberById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  // public getStatusById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   //   try {
   //     const teamId = parseInt(req.params.id);
-  //     const findOneUserData: Member = await this.team.findMemberById(teamId);
+  //     const findOneUserData: Status = await this.team.findStatusById(teamId);
 
   //     res.status(200).json({ data: findOneUserData, message: 'findOne' });
   //   } catch (error) {
@@ -38,13 +27,12 @@ export class MemberController {
   //   }
   // };
 
-  public createMember = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  public createStatus = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const teamData: Member = req.body;
-      console.log(teamData);
-      const createMemberData: Member = await this.team.createMember(teamData);
+      const teamData: Status = req.body;
+      const createStatusData: Status = await this.team.createStatus(teamData);
 
-      res.status(201).json({ data: createMemberData, message: 'created' });
+      res.status(201).json({ data: createStatusData, message: 'created' });
     } catch (error) {
       next(error);
     }

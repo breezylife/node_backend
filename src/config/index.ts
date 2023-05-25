@@ -4,5 +4,19 @@ config({
 });
 
 export const CREDENTIALS = process.env.CREDENTIALS === 'true';
-export const { NODE_ENV, PORT, SECRET_KEY, LOG_FORMAT, LOG_DIR, ORIGIN, CONNECTION_URL, DATABASE, USERS, TIME_ZONE_OFFSET, TASKS, Teams, Members } =
-  process.env;
+export const {
+  NODE_ENV,
+  PORT,
+  SECRET_KEY,
+  LOG_FORMAT,
+  LOG_DIR,
+  ORIGIN,
+  CONNECTION_URL,
+  DATABASE,
+  USERS,
+  TIME_ZONE_OFFSET,
+  TASKS,
+  Teams,
+  Members,
+  Status,
+} = process.env;

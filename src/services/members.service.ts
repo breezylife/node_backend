@@ -13,17 +13,17 @@ export class MembersService {
     return MySQL.AppDataSource.getRepository(MemberModel);
   }
 
-  //   public async findAllMembers(): Promise<Member[]> {
-  //     const userRepository: MongoRepository<UserModel> = this.getRepository();
+  public async findAllMembers(): Promise<Member[]> {
+    const memberRepository: Repository<MemberModel> = await this.getRepository();
 
-  //     const users: Member[] = await userRepository.find();
-  //     return users;
-  //   }
+    const findMembers: Member[] = await memberRepository.find();
+    return findMembers;
+  }
 
   public async findAllMembersByTeamId(teamId: string): Promise<Member[]> {
-    const teamRepository: Repository<MemberModel> = await this.getRepository();
+    const memberRepository: Repository<MemberModel> = await this.getRepository();
 
-    const findMembers: Member[] = await teamRepository.findBy({ teamId: parseInt(teamId) });
+    const findMembers: Member[] = await memberRepository.findBy({ teamId: parseInt(teamId) });
     // if (!findMember) throw new HttpException(409, "User doesn't exist");
 
     return findMembers;

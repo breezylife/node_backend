@@ -10,4 +10,7 @@ export class CreateMemberDto {
 
   @IsNumber()
   public teamId: number;
+
+  @IsString()
+  public teamName: string;
 }

@@ -5,6 +5,7 @@ import { UserModel } from '@/models/users.model';
 import { TaskModel } from '@/models/tasks.model';
 import { TeamModel } from '@/models/teams.model';
 import { MemberModel } from '@/models/members.model';
+import { StatusModel } from '@/models/status.model';
 
 @Service()
 export class MySQLService {
@@ -19,7 +20,7 @@ export class MySQLService {
         username: 'root',
         password: 'root',
         database: DATABASE,
-        entities: [UserModel, TaskModel, TeamModel, MemberModel],
+        entities: [UserModel, TaskModel, TeamModel, MemberModel, StatusModel],
         synchronize: true,
       });
       this.AppDataSource.initialize()

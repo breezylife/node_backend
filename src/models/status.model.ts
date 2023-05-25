@@ -1,19 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { Members } from '@config';
+import { Status } from '@config';
 
-@Entity({ name: Members })
-export class MemberModel {
+@Entity({ name: Status })
+export class StatusModel {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ nullable: true })
   name: string;
-
-  @Column()
-  teamId: number;
-
-  @Column()
-  teamName: string;
 
   @Column()
   description: string;

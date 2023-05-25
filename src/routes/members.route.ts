@@ -15,7 +15,8 @@ export class MemberRoute implements Routes {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}/:id(\\d+)`, this.team.getMembers);
+    this.router.get(`${this.path}`, this.team.getAllMembers);
+    this.router.get(`${this.path}/:id(\\d+)`, this.team.getMembersByTeamId);
     this.router.post(`${this.path}`, ValidationMiddleware(CreateMemberDto), this.team.createMember);
   }
 }
