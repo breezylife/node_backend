@@ -13,12 +13,12 @@ export class TasksService {
     return MySQL.AppDataSource.getRepository(TaskModel);
   }
 
-  //   public async findAllUsers(): Promise<Task[]> {
-  //     const userRepository: MongoRepository<UserModel> = this.getRepository();
+  public async findAllTaskByUserId(id: number): Promise<Task[]> {
+    const taskRepository: Repository<TaskModel> = await this.getRepository();
 
-  //     const users: Task[] = await userRepository.find();
-  //     return users;
-  //   }
+    const tasks: Task[] = await taskRepository.find({ where: { initiator: id.toString() } });
+    return tasks;
+  }
 
   public async findTaskById(id: number): Promise<Task> {
     const taskRepository: Repository<TaskModel> = await this.getRepository();

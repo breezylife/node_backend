@@ -27,6 +27,17 @@ export class TaskController {
     }
   };
 
+  public getTasksByUserId = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const userId = parseInt(req.params.id);
+      const findTasksData: Task[] = await this.task.findAllTaskByUserId(userId);
+
+      res.status(200).json({ data: findTasksData, message: 'find' });
+    } catch (error) {
+      next(error);
+    }
+  };
+
   public createTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const taskData: Task = req.body;
