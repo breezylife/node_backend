@@ -17,7 +17,7 @@ export class TaskRoute implements Routes {
     // this.router.get(`${this.path}`, this.user.getUsers);
     this.router.get(`${this.path}/:id(\\d+)`, this.task.getTasksByUserId);
     this.router.post(`${this.path}`, ValidationMiddleware(CreateTask), this.task.createTask);
-    this.router.put(`${this.path}/:id(\\d+)`, ValidationMiddleware(UpdateTask), this.task.updateTask);
+    this.router.post(`${this.path}/:id(\\d+)`, ValidationMiddleware(UpdateTask), this.task.updateTask);
     // this.router.delete(`${this.path}/:id(\\d+)`, this.user.deleteUser);
   }
 }
