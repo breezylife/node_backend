@@ -4,7 +4,7 @@ export interface Task {
   id: number;
   projectId?: number;
   title: string;
-  initiator: string;
+  initiator: number;
   startDate?: string;
   dueDate?: string;
   status?: string;

@@ -9,7 +9,7 @@ export class CreateTask {
 
   @IsString()
   @IsNotEmpty()
-  public initiator: string;
+  public initiator: number;
 
   @IsOptional()
   @IsString()
@@ -36,13 +36,15 @@ export class CreateTask {
 }
 
 export class UpdateTask {
-  public id: number;
-
   @IsOptional()
   public projectId: number;
 
   @IsOptional()
   public title: string;
+
+  @IsString()
+  @IsNotEmpty()
+  public initiator: number;
 
   @IsOptional()
   @IsString()

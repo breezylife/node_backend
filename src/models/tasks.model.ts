@@ -14,7 +14,7 @@ export class TaskModel {
   title: string;
 
   @Column()
-  initiator: string;
+  initiator: number;
 
   @Column({ nullable: true })
   startDate: string;

@@ -16,7 +16,7 @@ export class TasksService {
   public async findAllTaskByUserId(id: number): Promise<Task[]> {
     const taskRepository: Repository<TaskModel> = await this.getRepository();
 
-    const tasks: Task[] = await taskRepository.find({ where: { initiator: id.toString() } });
+    const tasks: Task[] = await taskRepository.find({ where: { initiator: id } });
     return tasks;
   }
 
