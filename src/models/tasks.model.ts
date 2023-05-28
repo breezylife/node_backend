@@ -10,30 +10,32 @@ export class TaskModel {
   // @OneToMany(type => ProjectModel.id)
   projectId: number;
 
-  @Column({ nullable: true })
-  projectName: string;
-
   @Column()
   title: string;
 
   @Column()
-  description: string;
-
-  @Column()
   initiator: string;
 
-  @Column()
+  @Column({ nullable: true })
+  startDate: string;
+
+  @Column({ nullable: true })
+  dueDate: string;
+
+  @Column({ nullable: true })
   status: string;
 
-  @Column()
-  assignee: string;
+  // @Column()
+  // assignee: string;
 
   @Column({ nullable: true })
   parentId: string;
 
   @Column({ nullable: true })
-  parentName: string;
+  boardId: string;
 
+  @Column({ nullable: true })
+  content: string;
   // @Column()
   // createDt: Date;
 

@@ -2,13 +2,15 @@ import { ObjectId } from 'typeorm';
 
 export interface Task {
   id: number;
-  projectName: string;
+  projectId?: number;
   title: string;
-  description: string;
   initiator: string;
-  status: string;
-  assignee: string;
-  parentId: string;
+  startDate?: string;
+  dueDate?: string;
+  status?: string;
+  parentId?: string;
+  boardId?: string;
+  content: string;
   // createDt: Date;
   // updateDt: Date;
 }

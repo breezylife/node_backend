@@ -1,29 +1,35 @@
-import { IsEmail, IsString, IsNotEmpty, MinLength, MaxLength, IsDate, IsArray, IsNumber, IsOptional } from 'class-validator';
-import { Task } from '@/interfaces/tasks.interface';
+import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateTask {
   @IsOptional()
   public projectId: number;
 
   @IsOptional()
-  public projectName: string;
-
-  @IsOptional()
   public title: string;
-
-  @IsOptional()
-  public description: string;
 
   @IsString()
   @IsNotEmpty()
   public initiator: string;
 
+  @IsOptional()
   @IsString()
   @IsNotEmpty()
   public status: string;
 
   @IsOptional()
   public assignee: string;
+
+  @IsOptional()
+  public startDate: string;
+
+  @IsOptional()
+  public dueDate: string;
+
+  @IsOptional()
+  public content: string;
+
+  @IsOptional()
+  public boardId: number;
 
   @IsOptional()
   public parentId: number;
