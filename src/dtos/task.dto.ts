@@ -36,6 +36,8 @@ export class CreateTask {
 }
 
 export class UpdateTask {
+  public id: number;
+
   @IsOptional()
   public projectId: number;
 
