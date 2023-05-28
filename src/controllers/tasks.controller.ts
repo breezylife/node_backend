@@ -49,17 +49,17 @@ export class TaskController {
     }
   };
 
-  //   public updateUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-  //     try {
-  //       const userId = Number(req.params.id);
-  //       const userData: User = req.body;
-  //       const updateUserData: User[] = await this.user.updateUser(userId, userData);
+  public updateTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const taskId = Number(req.params.id);
+      const taskData: Task = req.body;
+      const updateTaskData: Task = await this.task.updateTask(taskId, taskData);
 
-  //       res.status(200).json({ data: updateUserData, message: 'updated' });
-  //     } catch (error) {
-  //       next(error);
-  //     }
-  //   };
+      res.status(200).json({ data: updateTaskData, message: 'updated' });
+    } catch (error) {
+      next(error);
+    }
+  };
 
   //   public deleteUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   //     try {

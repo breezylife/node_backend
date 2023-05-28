@@ -50,10 +50,10 @@ export class TasksService {
     return createTaskData;
   }
 
-  public async updateTask(taskData: Task): Promise<Task> {
+  public async updateTask(taskId: number, taskData: Task): Promise<Task> {
     const taskRepository: Repository<TaskModel> = await this.getRepository();
 
-    const updateTaskData: Task = { ...taskData };
+    const updateTaskData: Task = { ...taskData, id: taskId };
     // const updateTaskData: Task = { ...taskData, updateDt: getNowTimeByTimeZone() };
     await taskRepository.save(updateTaskData);
 
